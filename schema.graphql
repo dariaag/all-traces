@@ -1,0 +1,32 @@
+type Contract @entity {
+  id: ID!
+  deploymentHeight: Int! @index
+  deploymentTxn: String! @index
+  address: String! @index
+  isAErc721Duck: Boolean!
+}
+
+type Transfer @entity {
+  id: ID!
+  contractAddress: String! 
+  tokenId: BigInt! 
+  blockSignedAt: DateTime! 
+  blockHeight: Int! 
+  txHash: String!
+  successfull: Boolean
+  value: BigInt
+  gasSpent: String
+  gasPrice: String
+  feesPaid: String
+
+}
+# contract_address	hex string	NFT address
+# block_signed_at	timestamp	timestamp the block is signed
+# block_height	int	block height
+# tx_hash	hex string	tx hash
+# successfull	boolean	if tx was successfull
+# value	string	tx value
+# gas_spent	string	gas spent by tx
+# gas_price	string	gas price
+# fees_paid	string	tx fees (gas_price * gas_spent)
+# token_id
